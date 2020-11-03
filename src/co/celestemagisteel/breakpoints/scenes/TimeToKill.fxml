@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.celestemagisteel.breakpoints.controllers.TimeToKillController">
+   <children>
+      <GridPane prefHeight="700.0" prefWidth="1280.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="0.0" prefWidth="207.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Time to kill you" GridPane.halignment="CENTER" />
+            <Label text="Hero Details" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label text="Time to kill them" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <TableView fx:id="timeToKillYouTableView" prefHeight="429.0" prefWidth="225.0" GridPane.rowIndex="1" />
+            <TableView fx:id="timeToKillThemTableView" layoutX="10.0" layoutY="30.0" prefHeight="680.0" prefWidth="661.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="118.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="162.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Hero Name: " GridPane.halignment="RIGHT" />
+                  <Label layoutX="21.0" layoutY="26.0" text="Health: " GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <Label text="Version: " GridPane.rowIndex="2" />
+                  <Label text="Damage per Second: " GridPane.rowIndex="4" />
+                  <Label text="Fire Rate: " GridPane.rowIndex="5" />
+                  <Label text="Bullets per Shot: " GridPane.rowIndex="6" />
+                  <Label text="Headshot: " GridPane.rowIndex="7" />
+                  <Label text="Damage Reduction: " GridPane.rowIndex="8" />
+                  <Label fx:id="nameLabel" text="name" GridPane.columnIndex="1" />
+                  <Label fx:id="healthLabel" text="health" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="versionLabel" text="version" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="dpsLabel" text="dps" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="fireRateLabel" text="firerate" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label fx:id="bpsLabel" text="bps" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label fx:id="headshotLabel" text="headshot" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label fx:id="dmgReductionLabel" text="dmg" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label text="Shot Type: " GridPane.rowIndex="3" />
+                  <Label fx:id="shotTypeLabel" text="shottype" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
