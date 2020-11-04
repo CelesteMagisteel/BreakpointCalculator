@@ -17,9 +17,10 @@ public class Hero implements Serializable, Comparable<Hero> {
     private double headshotMultiplier = 2;
     private double reloadTime;
     private ReloadType reloadType;
+    private int clipSize;
 
     public Hero(String name, boolean canHeadshot, ShotType shotType, double damagePerInstance, double fireRate,
-                int bulletsPerShot, Health health, double damageReduction, ReloadType reloadType, double reloadTime) {
+                int bulletsPerShot, Health health, double damageReduction, ReloadType reloadType, double reloadTime, int clipSize) {
         this.name = name;
         this.canHeadshot = canHeadshot;
         this.damagePerInstance = damagePerInstance;
@@ -31,11 +32,12 @@ public class Hero implements Serializable, Comparable<Hero> {
         this.bulletPerShot = bulletsPerShot;
         this.reloadTime = reloadTime;
         this.reloadType = reloadType;
+        this.clipSize = clipSize;
     }
 
     public Hero(String name, String valuesAsOf, boolean canHeadshot, ShotType shotType, double damagePerInstance,
                 double fireRate, int bulletsPerShot, double headshotMultiplier, Health health, double damageReduction,
-                ReloadType reloadType, double reloadTime) {
+                ReloadType reloadType, double reloadTime, int clipSize) {
         this.name = name;
         this.valuesAsOf = valuesAsOf;
         this.shotType = shotType;
@@ -49,6 +51,7 @@ public class Hero implements Serializable, Comparable<Hero> {
         this.headshotMultiplier = headshotMultiplier;
         this.reloadTime = reloadTime;
         this.reloadType = reloadType;
+        this.clipSize = clipSize;
     }
 
     public String getName() {
@@ -157,6 +160,14 @@ public class Hero implements Serializable, Comparable<Hero> {
 
     public void setReloadType(ReloadType reloadType) {
         this.reloadType = reloadType;
+    }
+
+    public int getClipSize() {
+        return clipSize;
+    }
+
+    public void setClipSize(int clipSize) {
+        this.clipSize = clipSize;
     }
 
     public boolean shoot(double damage) {

@@ -26,6 +26,7 @@ public class AddHeroController {
     @FXML private TextField damageReductionTextField;
     @FXML private TextField reloadTimeTextField;
     @FXML private TextField headshotMultiplierTextField;
+    @FXML private TextField clipSizeTextField;
     @FXML private ChoiceBox<ReloadType> reloadTypeSelector;
     @FXML private ToggleButton canHeadshotToggle;
     private Hero editingHero = null;
@@ -60,7 +61,7 @@ public class AddHeroController {
         int health; int armor; int shield; double damageReduction;
         double fireRate; double damage;
         int bulletsPerShot; double headshotMultiplier;
-        double reloadTime;
+        double reloadTime; int clipSize;
 
         try {
             health = (int) Double.parseDouble(healthTextField.getText());
@@ -117,6 +118,12 @@ public class AddHeroController {
             System.out.println("Reload Time value does not look right");
             return;
         }
+        try {
+            clipSize = Integer.parseInt(clipSizeTextField.getText());
+        } catch (NumberFormatException exception) {
+            System.out.println("Reload Time value does not look right");
+            return;
+        }
 
         String name = heroNameField.getText();
         String version = versionTextField.getText();
@@ -136,9 +143,10 @@ public class AddHeroController {
             editingHero.setHeadshotMultiplier(headshotMultiplier);
             editingHero.setReloadTime(reloadTime);
             editingHero.setReloadType(reloadType);
+            editingHero.setClipSize(clipSize);
         } else {
             Hero hero = new Hero(name, version, canHeadshot, shotType, damage, fireRate, bulletsPerShot, headshotMultiplier,
-                    new Health(health, armor, shield), damageReduction, reloadType, reloadTime);
+                    new Health(health, armor, shield), damageReduction, reloadType, reloadTime, clipSize);
             HeroPool.addHero(hero);
         }
         try {

@@ -45,6 +45,7 @@
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -54,8 +55,8 @@
                     </rowConstraints>
                      <children>
                         <TextField fx:id="healthTextField" promptText="Health" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                        <TextField fx:id="armorTextField" promptText="Armor (Default: 0)" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                        <TextField fx:id="shieldTextField" promptText="Shields (Default: 0)" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                        <TextField fx:id="armorTextField" promptText="Armor (Default: 0)" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <TextField fx:id="shieldTextField" promptText="Shields (Default: 0)" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin></TextField>
@@ -64,30 +65,38 @@
                               <Insets left="8.0" />
                            </padding>
                         </Label>
-                        <Label text="Armor" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                        <Label text="Armor" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
                            <padding>
                               <Insets left="8.0" />
                            </padding>
                         </Label>
-                        <Label text="Shields" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                        <Label text="Shields" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
                            <padding>
                               <Insets left="8.0" />
                            </padding>
                         </Label>
-                        <Label text="Damage Type" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+                        <Label text="Damage Type" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                            <padding>
                               <Insets left="8.0" />
                            </padding>
                         </Label>
-                        <ChoiceBox fx:id="damageTypeSelector" prefHeight="25.0" prefWidth="309.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                        <Label text="Can Perform Headshot?" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                        <ToggleButton fx:id="canHeadshotToggle" mnemonicParsing="false" onAction="#changeToggleValue" prefHeight="25.0" prefWidth="166.0" text="Cannot Headshot" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                        <Label text="Damage Reduction" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                        <ChoiceBox fx:id="damageTypeSelector" prefHeight="25.0" prefWidth="309.0" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Label text="Can Perform Headshot?" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding></Label>
+                        <ToggleButton fx:id="canHeadshotToggle" mnemonicParsing="false" onAction="#changeToggleValue" prefHeight="25.0" prefWidth="329.0" text="Cannot Headshot" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Label text="Damage Reduction" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                            <padding>
                               <Insets left="8.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="damageReductionTextField" promptText="Damage Reduction (Default: 0)" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <TextField fx:id="damageReductionTextField" promptText="Damage Reduction (Default: 0)" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <TextField fx:id="headshotMultiplierTextField" promptText="Headshot Multiplier (Default: 2)" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <Label text="Headshot Multiplier" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding></Label>
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1">
@@ -103,6 +112,7 @@
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -124,7 +134,7 @@
                            </padding>
                         </Label>
                         <TextField fx:id="fireRateTextField" layoutX="10.0" layoutY="92.0" promptText="Fire Rate/Tick Rate" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                        <Label text="Bullets Per Shot" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                        <Label text="Bullets Per Shot" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -132,23 +142,24 @@
                               <Insets left="8.0" />
                            </padding>
                         </Label>
-                        <TextField fx:id="bulletsPerShotTextField" promptText="Bullets Per Shot (Default: 1)" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                        <Label text="Headshot Multiplier" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                        <TextField fx:id="bulletsPerShotTextField" promptText="Bullets Per Shot (Default: 1)" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label text="Reload Type" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                            <padding>
                               <Insets left="8.0" />
                            </padding></Label>
-                        <Label text="Reload Type" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                        <Label text="Reload Time" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                            <padding>
                               <Insets left="8.0" />
                            </padding></Label>
-                        <Label text="Reload Time" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-                           <padding>
-                              <Insets left="8.0" />
-                           </padding></Label>
-                        <TextField fx:id="headshotMultiplierTextField" promptText="Headshot Multiplier (Default: 2)" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                         <HBox prefHeight="100.0" prefWidth="200.0" />
-                        <TextField fx:id="reloadTimeTextField" promptText="Reload Time" GridPane.rowIndex="3" GridPane.valignment="TOP" />
-                        <ChoiceBox fx:id="reloadTypeSelector" prefHeight="25.0" prefWidth="388.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                        <TextField fx:id="reloadTimeTextField" promptText="Reload Time" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <ChoiceBox fx:id="reloadTypeSelector" prefHeight="25.0" prefWidth="388.0" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Label layoutX="10.0" layoutY="197.0" text="Clip Size" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="clipSizeTextField" layoutX="10.0" layoutY="214.0" promptText="Clip Size" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                      </children>
                   </GridPane>
                </children>
