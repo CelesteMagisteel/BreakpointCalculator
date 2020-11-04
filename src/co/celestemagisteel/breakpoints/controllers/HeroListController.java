@@ -21,21 +21,41 @@ public class HeroListController {
         heroTableView.setItems(HeroPool.getHeroPool());
 
         TableColumn<Hero, String> nameColumn = new TableColumn<>("Hero Name");
-        nameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getName())));
+        nameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getName()));
 
         TableColumn<Hero, String> healthColumn = new TableColumn<>("Health");
-        healthColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getMaximumHealth())));
+        healthColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMaximumHealth() + ""));
 
         TableColumn<Hero, String> damageColumn = new TableColumn<>("Damage");
-        damageColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getDamagePerInstance())));
+        damageColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getDamagePerInstance() + ""));
 
         TableColumn<Hero, String> fireRateColumn = new TableColumn<>("Fire Rate");
-        fireRateColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getFireRate())));
+        fireRateColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getFireRate() + ""));
+
+        TableColumn<Hero, String> bpsColumn = new TableColumn<>("Bullets/Shot");
+        bpsColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getBulletPerShot() + ""));
+
+        TableColumn<Hero, String> shotTypeColumn = new TableColumn<>("Shot Type");
+        shotTypeColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getShotType() + ""));
+
+        TableColumn<Hero, String> canHeadshotColumn = new TableColumn<>("Headshot");
+        canHeadshotColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().canHeadshot() ? "Yes" : "No"));
+
+        TableColumn<Hero, String> headshotMultiplierColumn = new TableColumn<>("Multiplier");
+        headshotMultiplierColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getHeadshotMultiplier() + ""));
+
+        TableColumn<Hero, String> reloadTypeColumn = new TableColumn<>("Reload Type");
+        reloadTypeColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getReloadType() + ""));
+
+        TableColumn<Hero, String> reloadTimeColumn = new TableColumn<>("Reload Time");
+        reloadTimeColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getReloadTime() + ""));
 
         TableColumn<Hero, String> versionColumn = new TableColumn<>("Version");
         versionColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getValuesAsOf())));
 
-        heroTableView.getColumns().addAll(nameColumn, healthColumn, damageColumn, fireRateColumn, versionColumn);
+        heroTableView.getColumns().addAll(nameColumn, healthColumn, damageColumn, fireRateColumn, bpsColumn,
+                shotTypeColumn, canHeadshotColumn, headshotMultiplierColumn, reloadTypeColumn, reloadTimeColumn,
+                versionColumn);
     }
 
     public void editHero() throws IOException {
