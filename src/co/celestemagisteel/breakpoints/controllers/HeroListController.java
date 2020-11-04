@@ -19,16 +19,22 @@ public class HeroListController {
 
     public void initialize() {
         heroTableView.setItems(HeroPool.getHeroPool());
+
         TableColumn<Hero, String> nameColumn = new TableColumn<>("Hero Name");
         nameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getName())));
+
         TableColumn<Hero, String> healthColumn = new TableColumn<>("Health");
         healthColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getMaximumHealth())));
+
         TableColumn<Hero, String> damageColumn = new TableColumn<>("Damage");
         damageColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getDamagePerInstance())));
+
         TableColumn<Hero, String> fireRateColumn = new TableColumn<>("Fire Rate");
         fireRateColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getFireRate())));
+
         TableColumn<Hero, String> versionColumn = new TableColumn<>("Version");
         versionColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(String.valueOf(cellData.getValue().getValuesAsOf())));
+
         heroTableView.getColumns().addAll(nameColumn, healthColumn, damageColumn, fireRateColumn, versionColumn);
     }
 
@@ -54,5 +60,17 @@ public class HeroListController {
         Hero hero = heroTableView.getSelectionModel().getSelectedItem();
         if (hero == null) return;
         HeroPool.removeHero(hero);
+    }
+
+    public void addHero() throws IOException {
+        canvasController.loadScene(loadFXML("AddHero").load());
+    }
+
+    public void saveHeroes() {
+        canvasController.saveHeroPool();
+    }
+
+    public void loadHeroes() {
+        canvasController.loadHeroPool();
     }
 }
